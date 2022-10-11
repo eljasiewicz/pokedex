@@ -1,3 +1,4 @@
+CREATE DATABASE pokedex;
 USE pokedex;
 DROP TABLE national_unova;
 CREATE table national_unova
@@ -37,9 +38,6 @@ CREATE table national_unova
     Un INT DEFAULT(NULL)
 );
 
-ALTER TABLE national_unova
-MODIFY exp VARCHAR(30);
-
 LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\pokemon.csv'
 INTO TABLE national_unova
 CHARACTER SET utf8
@@ -61,10 +59,6 @@ Hatch = CASE
 Egg_Group_II = NULLIF(@egg_group_ii, ''),
 Type_II = NULLIF(@type_ii, '')
 ;
-
-SELECT*FROM national_unova LIMIT 1000;
-
-DROP TABLE attackdex_vii; 
 
 CREATE TABLE attackdex_vii
 ( 
@@ -97,4 +91,3 @@ accuracy = CASE
 	ELSE @accuracy
 	END
 ;
-SELECT prob FROM attackdex_vii;
